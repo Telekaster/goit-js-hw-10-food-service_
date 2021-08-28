@@ -34,21 +34,26 @@ else if (body.classList.contains('light-theme')) {
     
 checkbox.addEventListener('change', themeColorChanger)
 
-function themeColorChanger() {
+function themeColorChanger(evt) {
 
-    if (body.classList.contains('light-theme')) {
+
+    if (evt.target.checked) {
+        console.log('checked');
         body.classList.remove(Theme.LIGHT);
         body.classList.add(Theme.DARK);
         localStorage.setItem('Theme', 'dark-theme');
         return;
     }
 
-    if (body.classList.contains('dark-theme')) {
+    else {
+        console.log('not checked');
         body.classList.remove(Theme.DARK)
         body.classList.add(Theme.LIGHT)
         localStorage.setItem('Theme', 'light-theme')
         return;
     };
+
+    
 }
 
 
